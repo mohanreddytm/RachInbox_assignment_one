@@ -14,7 +14,7 @@ const Dashboard: React.FC = () => {
 
   const loadRecentEmails = async () => {
     try {
-      const response = await fetch('http://localhost:3001/api/emails?limit=5&sortBy=date&sortOrder=desc')
+      const response = await fetch('https://rachinbox-assignment-one.onrender.com/api/emails?limit=5&sortBy=date&sortOrder=desc')
       const data = await response.json()
       setRecentEmails(data.emails || [])
     } catch (error) {

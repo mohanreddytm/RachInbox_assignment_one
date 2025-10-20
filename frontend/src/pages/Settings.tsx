@@ -65,7 +65,7 @@ const SettingsPage: React.FC = () => {
 
   // System Settings
   const [systemSettings, setSystemSettings] = useState({
-    elasticsearchUrl: 'http://localhost:9200',
+    elasticsearchUrl: 'https://rachinbox-assignment-one.onrender.com:9200',
     postgresUrl: '',
     syncInterval: 5,
     maxEmailsPerSync: 100,
@@ -498,7 +498,7 @@ const SettingsPage: React.FC = () => {
                         type="url"
                         value={systemSettings.postgresUrl}
                         onChange={(e) => setSystemSettings({...systemSettings, postgresUrl: e.target.value})}
-                        placeholder="postgresql://username:password@localhost:5432/reachinbox"
+                        placeholder="postgresql://username:password@rachinbox-assignment-one.onrender.com:5432/reachinbox"
                         className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                       />
                     </div>

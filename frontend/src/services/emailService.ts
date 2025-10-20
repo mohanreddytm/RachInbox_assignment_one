@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { Email, EmailSearchParams, EmailSearchResponse, EmailStats } from '../types/email'
 
-const API_BASE_URL = 'http://localhost:3001/api'
+const API_BASE_URL = 'https://rachinbox-assignment-one.onrender.com/api'
 
 const api = axios.create({
   baseURL: API_BASE_URL,
