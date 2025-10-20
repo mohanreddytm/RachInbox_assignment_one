@@ -1,0 +1,31 @@
+# Backend gitignore
+
+# Dependencies
+node_modules/
+pnpm-lock.yaml
+
+# Build outputs
+dist/
+coverage/
+
+# Env
+.env
+.env.*
+!.env.example
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# IDE/OS
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Misc
+tmp/
+.cache/
+

@@ -1,0 +1,43 @@
+# Root gitignore
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Builds / outputs
+dist/
+build/
+coverage/
+
+# OS / Editor junk
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Tooling
+.cursor/
+.agent-tools/
+
+# Docker
+.docker/
+
+# Logs
+logs/
+*.log
+
+# Runtime
+tmp/
+.cache/
+
+# Misc
+*.local
+
