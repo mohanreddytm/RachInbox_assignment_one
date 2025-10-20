@@ -1,18 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { 
-  Settings as SettingsIcon, 
   Mail, 
   Bell, 
   Shield, 
   Database, 
-  User, 
-  Key, 
-  Server, 
   Save,
   RefreshCw,
   Check,
-  X,
-  AlertCircle
+  X
 } from 'lucide-react'
 
 const SettingsPage: React.FC = () => {

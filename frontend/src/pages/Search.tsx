@@ -4,7 +4,7 @@ import { Search, Filter, Calendar, User, Mail, ChevronDown, X, RefreshCw } from 
 import { Email } from '../types/email'
 
 const SearchPage: React.FC = () => {
-  const { searchEmails, loading, error } = useEmail()
+  const { searchEmails, error } = useEmail()
   const [searchResults, setSearchResults] = useState<Email[]>([])
   const [totalResults, setTotalResults] = useState(0)
   const [currentPage, setCurrentPage] = useState(1)

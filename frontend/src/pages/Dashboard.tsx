@@ -178,7 +178,7 @@ const Dashboard: React.FC = () => {
         <div className="card p-6">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Email Categories</h3>
           <div className="space-y-3">
-            {displayStats.byCategory.map((item: any) => (
+            {displayStats.byCategory?.map((item: any) => (
               <div key={item.key} className="flex items-center justify-between">
                 <div className="flex items-center space-x-2">
                   <span className={`px-2 py-1 rounded-full text-xs font-medium ${getCategoryColor(item.key)}`}>
@@ -187,7 +187,7 @@ const Dashboard: React.FC = () => {
                 </div>
                 <span className="font-semibold text-gray-900">{item.doc_count}</span>
               </div>
-            ))}
+            )) || []}
           </div>
         </div>
 
@@ -195,7 +195,7 @@ const Dashboard: React.FC = () => {
         <div className="card p-6">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Account Distribution</h3>
           <div className="space-y-3">
-            {displayStats.byAccount.map((item: any) => (
+            {displayStats.byAccount?.map((item: any) => (
               <div key={item.key} className="flex items-center justify-between">
                 <div className="flex items-center space-x-2">
                   <Users className="h-4 w-4 text-gray-400" />
@@ -203,7 +203,7 @@ const Dashboard: React.FC = () => {
                 </div>
                 <span className="font-semibold text-gray-900">{item.doc_count}</span>
               </div>
-            ))}
+            )) || []}
           </div>
         </div>
       </div>
