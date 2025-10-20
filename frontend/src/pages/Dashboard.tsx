@@ -58,18 +58,12 @@ const Dashboard: React.FC = () => {
   }
 
   // Helper function to get category count from stats
-  const getCategoryCount = (category: string) => {
-    if (!displayStats?.byCategory) return 0
-    const categoryData = displayStats.byCategory.find((item: any) => item.key === category)
+  const getCategoryCount = (category: string, statsData: any) => {
+    if (!statsData?.byCategory) return 0
+    const categoryData = statsData.byCategory.find((item: any) => item.key === category)
     return categoryData?.doc_count || 0
   }
 
-  // Helper function to get account count from stats
-  const getAccountCount = (account: string) => {
-    if (!displayStats?.byAccount) return 0
-    const accountData = displayStats.byAccount.find((item: any) => item.key === account)
-    return accountData?.doc_count || 0
-  }
 
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString('en-US', {
@@ -138,7 +132,7 @@ const Dashboard: React.FC = () => {
             <div className="ml-4">
               <p className="text-sm font-medium text-gray-600 dark:text-gray-300">Interested</p>
               <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">
-                {getCategoryCount('Interested')}
+                {getCategoryCount('Interested', displayStats)}
               </p>
             </div>
           </div>
@@ -152,7 +146,7 @@ const Dashboard: React.FC = () => {
             <div className="ml-4">
               <p className="text-sm font-medium text-gray-600 dark:text-gray-300">Meetings</p>
               <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">
-                {getCategoryCount('Meeting Booked')}
+                {getCategoryCount('Meeting Booked', displayStats)}
               </p>
             </div>
           </div>
@@ -166,7 +160,7 @@ const Dashboard: React.FC = () => {
             <div className="ml-4">
               <p className="text-sm font-medium text-gray-600 dark:text-gray-300">Spam</p>
               <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">
-                {getCategoryCount('Spam')}
+                {getCategoryCount('Spam', displayStats)}
               </p>
             </div>
           </div>
@@ -178,7 +172,7 @@ const Dashboard: React.FC = () => {
         <div className="card p-6">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Email Categories</h3>
           <div className="space-y-3">
-            {displayStats.byCategory?.map((item: any) => (
+            {(displayStats.byCategory && Array.isArray(displayStats.byCategory) ? displayStats.byCategory : []).map((item: any) => (
               <div key={item.key} className="flex items-center justify-between">
                 <div className="flex items-center space-x-2">
                   <span className={`px-2 py-1 rounded-full text-xs font-medium ${getCategoryColor(item.key)}`}>
@@ -187,7 +181,7 @@ const Dashboard: React.FC = () => {
                 </div>
                 <span className="font-semibold text-gray-900">{item.doc_count}</span>
               </div>
-            )) || []}
+            ))}
           </div>
         </div>
 
@@ -195,7 +189,7 @@ const Dashboard: React.FC = () => {
         <div className="card p-6">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Account Distribution</h3>
           <div className="space-y-3">
-            {displayStats.byAccount?.map((item: any) => (
+            {(displayStats.byAccount && Array.isArray(displayStats.byAccount) ? displayStats.byAccount : []).map((item: any) => (
               <div key={item.key} className="flex items-center justify-between">
                 <div className="flex items-center space-x-2">
                   <Users className="h-4 w-4 text-gray-400" />
@@ -203,7 +197,7 @@ const Dashboard: React.FC = () => {
                 </div>
                 <span className="font-semibold text-gray-900">{item.doc_count}</span>
               </div>
-            )) || []}
+            ))}
           </div>
         </div>
       </div>
